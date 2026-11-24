@@ -1,0 +1,301 @@
+
+========================================
+     BANK ACCOUNT MANAGEMENT SYSTEM     
+========================================
+1. Create a New Account
+2. Deposit Money
+3. Withdraw Money
+4. Transfer Money
+5. Check Account Balance
+6. View Account Information
+7. View Transaction History
+8. Display All Accounts
+9. Display Account Types
+10. Exit
+Enter your choice: 
+Enter account holder name: Enter account number: Enter account type (Savings/Checking): Enter initial deposit: 
+Account created successfully!
+Account Number: 1001
+Account Holder: Malik
+Account Type: Savings
+Initial Balance: $500.00
+
+========================================
+     BANK ACCOUNT MANAGEMENT SYSTEM     
+========================================
+1. Create a New Account
+2. Deposit Money
+3. Withdraw Money
+4. Transfer Money
+5. Check Account Balance
+6. View Account Information
+7. View Transaction History
+8. Display All Accounts
+9. Display Account Types
+10. Exit
+Enter your choice: 
+Enter account holder name: Enter account number: Enter account type (Savings/Checking): Enter initial deposit: 
+Account created successfully!
+Account Number: 1002
+Account Holder: Sara
+Account Type: Checking
+Initial Balance: $500.00
+
+========================================
+     BANK ACCOUNT MANAGEMENT SYSTEM     
+========================================
+1. Create a New Account
+2. Deposit Money
+3. Withdraw Money
+4. Transfer Money
+5. Check Account Balance
+6. View Account Information
+7. View Transaction History
+8. Display All Accounts
+9. Display Account Types
+10. Exit
+Enter your choice: 
+Enter account holder name: Enter account number: Error: Account number 1001 already exists.
+
+========================================
+     BANK ACCOUNT MANAGEMENT SYSTEM     
+========================================
+1. Create a New Account
+2. Deposit Money
+3. Withdraw Money
+4. Transfer Money
+5. Check Account Balance
+6. View Account Information
+7. View Transaction History
+8. Display All Accounts
+9. Display Account Types
+10. Exit
+Enter your choice: 
+Enter account number: Enter deposit amount: Deposit successful!
+New Balance: $750.00
+
+========================================
+     BANK ACCOUNT MANAGEMENT SYSTEM     
+========================================
+1. Create a New Account
+2. Deposit Money
+3. Withdraw Money
+4. Transfer Money
+5. Check Account Balance
+6. View Account Information
+7. View Transaction History
+8. Display All Accounts
+9. Display Account Types
+10. Exit
+Enter your choice: 
+Enter account number: Enter deposit amount: Error: Deposit rejected. Amount must be greater than zero.
+
+========================================
+     BANK ACCOUNT MANAGEMENT SYSTEM     
+========================================
+1. Create a New Account
+2. Deposit Money
+3. Withdraw Money
+4. Transfer Money
+5. Check Account Balance
+6. View Account Information
+7. View Transaction History
+8. Display All Accounts
+9. Display Account Types
+10. Exit
+Enter your choice: 
+Enter account number: Enter withdrawal amount: Withdrawal successful!
+Remaining Balance: $550.00
+
+========================================
+     BANK ACCOUNT MANAGEMENT SYSTEM     
+========================================
+1. Create a New Account
+2. Deposit Money
+3. Withdraw Money
+4. Transfer Money
+5. Check Account Balance
+6. View Account Information
+7. View Transaction History
+8. Display All Accounts
+9. Display Account Types
+10. Exit
+Enter your choice: 
+Enter account number: Enter withdrawal amount: Error: Withdrawal rejected. Insufficient funds. Available balance is $500.00.
+
+========================================
+     BANK ACCOUNT MANAGEMENT SYSTEM     
+========================================
+1. Create a New Account
+2. Deposit Money
+3. Withdraw Money
+4. Transfer Money
+5. Check Account Balance
+6. View Account Information
+7. View Transaction History
+8. Display All Accounts
+9. Display Account Types
+10. Exit
+Enter your choice: 
+Sender Account: Recipient Account: Transfer Amount: Transfer successful!
+Sender New Balance: $450.00
+Recipient New Balance: $600.00
+
+========================================
+     BANK ACCOUNT MANAGEMENT SYSTEM     
+========================================
+1. Create a New Account
+2. Deposit Money
+3. Withdraw Money
+4. Transfer Money
+5. Check Account Balance
+6. View Account Information
+7. View Transaction History
+8. Display All Accounts
+9. Display Account Types
+10. Exit
+Enter your choice: 
+Sender Account: Recipient Account: Error: Transfer rejected. You cannot transfer money to the same account.
+
+========================================
+     BANK ACCOUNT MANAGEMENT SYSTEM     
+========================================
+1. Create a New Account
+2. Deposit Money
+3. Withdraw Money
+4. Transfer Money
+5. Check Account Balance
+6. View Account Information
+7. View Transaction History
+8. Display All Accounts
+9. Display Account Types
+10. Exit
+Enter your choice: 
+Sender Account: Recipient Account: Error: Transfer rejected. Account 9999 does not exist.
+
+========================================
+     BANK ACCOUNT MANAGEMENT SYSTEM     
+========================================
+1. Create a New Account
+2. Deposit Money
+3. Withdraw Money
+4. Transfer Money
+5. Check Account Balance
+6. View Account Information
+7. View Transaction History
+8. Display All Accounts
+9. Display Account Types
+10. Exit
+Enter your choice: 
+Enter account number: Account Holder: Malik
+Current Balance: $450.00
+
+========================================
+     BANK ACCOUNT MANAGEMENT SYSTEM     
+========================================
+1. Create a New Account
+2. Deposit Money
+3. Withdraw Money
+4. Transfer Money
+5. Check Account Balance
+6. View Account Information
+7. View Transaction History
+8. Display All Accounts
+9. Display Account Types
+10. Exit
+Enter your choice: 
+Enter account number: Account Number     : 1001
+Account Holder     : Malik
+Account Type       : Savings
+Current Balance    : $450.00
+No. of Transactions: 4
+
+========================================
+     BANK ACCOUNT MANAGEMENT SYSTEM     
+========================================
+1. Create a New Account
+2. Deposit Money
+3. Withdraw Money
+4. Transfer Money
+5. Check Account Balance
+6. View Account Information
+7. View Transaction History
+8. Display All Accounts
+9. Display Account Types
+10. Exit
+Enter your choice: 
+Enter account number: Transaction History - Account 1001
+1. Deposit         $500.00   Initial deposit           Balance: $500.00
+2. Deposit         $250.00   Cash deposit              Balance: $750.00
+3. Withdrawal      $200.00   Cash withdrawal           Balance: $550.00
+4. Transfer        $100.00   Transfer to 1002          Balance: $450.00
+Current Balance: $450.00
+
+========================================
+     BANK ACCOUNT MANAGEMENT SYSTEM     
+========================================
+1. Create a New Account
+2. Deposit Money
+3. Withdraw Money
+4. Transfer Money
+5. Check Account Balance
+6. View Account Information
+7. View Transaction History
+8. Display All Accounts
+9. Display Account Types
+10. Exit
+Enter your choice: 
+Account Number  Account Holder      Type             Balance
+------------------------------------------------------------
+1001            Malik               Savings          $450.00
+1002            Sara                Checking         $600.00
+------------------------------------------------------------
+Total accounts: 2
+
+========================================
+     BANK ACCOUNT MANAGEMENT SYSTEM     
+========================================
+1. Create a New Account
+2. Deposit Money
+3. Withdraw Money
+4. Transfer Money
+5. Check Account Balance
+6. View Account Information
+7. View Transaction History
+8. Display All Accounts
+9. Display Account Types
+10. Exit
+Enter your choice: 
+Available Account Types:
+- Checking
+- Savings
+
+========================================
+     BANK ACCOUNT MANAGEMENT SYSTEM     
+========================================
+1. Create a New Account
+2. Deposit Money
+3. Withdraw Money
+4. Transfer Money
+5. Check Account Balance
+6. View Account Information
+7. View Transaction History
+8. Display All Accounts
+9. Display Account Types
+10. Exit
+Enter your choice: Error: '42' is not a valid option. Please choose 1-10.
+
+========================================
+     BANK ACCOUNT MANAGEMENT SYSTEM     
+========================================
+1. Create a New Account
+2. Deposit Money
+3. Withdraw Money
+4. Transfer Money
+5. Check Account Balance
+6. View Account Information
+7. View Transaction History
+8. Display All Accounts
+9. Display Account Types
+10. Exit
+Enter your choice: Thank you for banking with us. Goodbye!
