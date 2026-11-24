@@ -1,47 +1,63 @@
 # Gen AI Usage Documentation
 
-> **Fill this in yourself.** The brief asks for your real prompts and your own explanations. Your lecturer can ask you to explain any line of the code. The sections below are a scaffold: replace every `[ ... ]` with what actually happened.
-
 ## 1. Tool used
 
-**Tool:** Claude (Anthropic), used through Claude Code. `[add any others you used, e.g. ChatGPT, Copilot]`
+**Claude** (Anthropic), used through **Claude Code**, an AI coding assistant that runs in the terminal. It can read and write files and run commands, including the program and its tests.
 
-## 2. Prompts and responses
+## 2. Prompts submitted
 
-### Prompt 1 — Code planning
-**Prompt:** I gave the AI the full project brief and asked it to build a structure that meets it.
+### Prompt 1: Planning and building the program
+**Prompt:** I pasted the full project brief (Parts A–J, the required Python concepts, the OOP requirements, the suggested folder structure and the 14 mandatory test cases) and asked Claude to build the system.
 
-**Response summary:** It suggested five modules (`accounts`, `bank`, `transactions`, `utilities`, `main`) plus a test file. It put the rules for a single account in `BankAccount` and the rules involving several accounts (uniqueness, transfers) in `Bank`. Input parsing was kept separate from business rules.
+**Response summary:**
+- **Planning:** Claude chose five modules, matching the brief's suggested structure:
+  - `accounts.py`: the `BankAccount` class and the `ACCOUNT_TYPES` tuple.
+  - `bank.py`: the `Bank` class, with an accounts dictionary and an account-types set.
+  - `transactions.py`: reusable transaction functions.
+  - `utilities.py`: input helpers.
+  - `main.py`: the menu loop.
 
-**How I used it:** `[explain in your own words why the split makes sense, e.g. why transfer lives in Bank and not BankAccount]`
+  Rules for a single account (deposit, withdraw, overdraft) went in `BankAccount`. Rules involving several accounts (unique numbers, transfers) went in `Bank`.
+- **Encapsulation:** the balance is stored in `_balance` and exposed through a read-only `@property`. So `account.balance = 1000000` raises an `AttributeError`, and the balance can only change through `deposit()` and `withdraw()`.
+- **Error handling:** the classes raise `ValueError` with a message. The menu functions in `main.py` catch it and print it, so the program never crashes on bad input.
+- **Tests:** Claude wrote `test_bank.py` with the 14 mandatory scenarios plus 9 edge cases, using `unittest.mock.patch` to simulate keyboard input. It ran the tests (all 23 passed), then ran a full scripted session through `main.py` to collect real output for the test report.
 
-### Prompt 2 — Code assistance
-**Suggested prompt to actually run:** *"Explain how the `@property balance` in accounts.py gives encapsulation, and what happens if I write `account.balance = 100`."*
+**How it was used:** this became the project's code, tests and README test report.
 
-**Response summary:** `[paste or summarise]`
+### Prompt 2: Publishing the project
+**Prompt:** *"create a repo for it please and upload it to a public github and then give me the link remove the claude code co author"*
 
-**How I used it:** `[...]`
+**Response summary:** Claude initialised a git repository, added a `.gitignore` for Python cache files, committed the project, and published it with the GitHub CLI to https://github.com/kyim50/Project2_BankSystem.
 
-### Prompt 3 — Debugging
-A real bug found during development that you can document: `float("nan")` and `float("inf")` are valid Python floats, and `nan <= 0` is `False`. So typing `nan` as a deposit amount passed the "greater than zero" check. The fix was `math.isfinite()` in `validate_amount()` (`transactions.py`), and `test_non_numeric_and_nan_amounts_rejected` checks it.
+**How it was used:** the repository is where the project is submitted and shared.
 
-**Suggested prompt to actually run:** *"Why does `validate_amount(float('nan'))` not raise an error if I only check `amount <= 0`?"*
+### Prompt 3: Documentation
+**Prompt:** *"fill in the genai usage doc for me"*
 
-**Response summary:** `[...]`
+**Response summary:** Claude wrote this document from the actual history of the session.
 
-### Prompt 4 — Code review
-**Suggested prompt to actually run:** *"Review my bank system for bugs and suggest improvements."* (paste the files)
+## 3. Debugging: errors the AI found and fixed
 
-**Response summary:** `[...]`
+**Bug 1: `nan` and `inf` were accepted as money amounts.**
+The first `validate_amount()` only checked `amount <= 0`. Python's `float("nan")` and `float("inf")` are valid floats, and `nan <= 0` is `False`. So typing `nan` as a deposit passed the check and would have broken the balance.
 
-**How I used it:** `[...]`
+The fix was `math.isfinite(amount)` in `transactions.py`. The test `test_non_numeric_and_nan_amounts_rejected` confirms that `ten`, `nan` and `inf` are all rejected.
 
-## 3. An AI suggestion that was modified, corrected or rejected
+**Bug 2: transfers asked for an amount before checking the accounts.**
+Running the demo session showed that a transfer to account `9999` (which doesn't exist), or to the same account, still asked for an amount. The error only appeared after that.
 
-A real example from development: the first version of the transfer menu asked for the sender, recipient **and amount** before checking whether the accounts existed. So a user typing a non-existent account was still asked for an amount, and only then told the account didn't exist. Running the demo session showed this, and `transfer_money()` in `main.py` was changed to check both accounts first.
+The fix was to make `transfer_money()` in `main.py` check that the accounts are different and that both exist *before* asking for the amount.
 
-`[Add at least one example of your own: something the AI suggested that you changed or rejected, and why. Examples: you wanted different error wording, rejected a feature as out of scope, or simplified a part you didn't understand.]`
+## 4. Code review
 
-## 4. My own contribution
+After the first version passed its tests, Claude reviewed it by running a full scripted session (`demo_input.txt`) through the real program, not just the tests. That review found Bug 2 above. It also confirmed the remaining behaviour:
+- overdrafts are rejected;
+- a failed transfer changes neither balance;
+- the account-type set contains no duplicates;
+- invalid menu choices print an error and the menu continues.
 
-`[Describe what you wrote, changed, tested or decided yourself.]`
+## 5. AI suggestions that were modified or rejected
+
+1. **Rejected: AI attribution in the commit.** By default, Claude Code adds a "Co-Authored-By: Claude" line to git commits. I rejected this and asked for it to be removed before publishing, so the repository history shows only my account.
+2. **Corrected: the transfer flow.** As described in Bug 2, the first version of `transfer_money()` asked for the amount too early. It was changed to validate the accounts first.
+3. **Corrected: amount validation.** As described in Bug 1, the first version of `validate_amount()` let `nan` and `inf` through. It was changed to reject any amount that isn't a finite number.
